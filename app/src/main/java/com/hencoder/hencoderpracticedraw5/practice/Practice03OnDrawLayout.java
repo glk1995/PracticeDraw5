@@ -26,8 +26,11 @@ public class Practice03OnDrawLayout extends LinearLayout {
 
     {
         // 在这里插入 setWillNotDraw(false) 以启用完整的绘制流程
+        setWillNotDraw(false);
     }
 
+    //ViewGroup子类，在除了dispatchDraw()之外的方法中绘制，比如onDraw()，需要调用setWillNotDraw(false)
+    //因为出于效率的考虑，大部分ViewGroup的子类会绕过draw()方法，直接调用dispatchDraw()
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
